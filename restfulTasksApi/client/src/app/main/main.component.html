@@ -1,0 +1,15 @@
+<h1>Restful Tasks API</h1>
+<button (click)="getAllTasks()">GET ALL TASKS</button>
+<button (click)="clear()">Close All Tasks</button>
+
+<div *ngIf="flag1">
+  <ul *ngFor="let item of products">
+    <li>{{item.name}} <button (click)="getTaskDetails(item.id)">SHOW</button></li>
+  </ul>
+</div>
+
+<div *ngIf="flag2">
+    <ul *ngFor="let detail of product">
+      <li>{{detail}}</li>
+    </ul>
+</div>
