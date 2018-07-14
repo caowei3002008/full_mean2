@@ -1,0 +1,15 @@
+.earningMethod{
+  width: 200px;
+  height: 200px;
+  border: 1px black solid;
+  display: inline-block;
+  margin-left: 5px;
+}
+.log{
+  width: 820px;
+  height: 300px;
+  border: 1px black solid;
+  margin-left: 5px;
+  margin-top: 20px;
+  overflow: scroll;
+}
