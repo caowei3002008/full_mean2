@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
+
+import {Http} from "@angular/http";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +13,20 @@ export class ApiService {
   meg = "";
   logs = [];
 
-  constructor() { }
+  constructor(private _http:Http) { }
   getRecord(){
     return this.records;
+  }
+
+  getGoldsSaved(){
+    return this._http.get('/gold/getSaved')
+      .pipe(map((response: any) => response.json())).toPromise();
+
+  }
+
+  createNewGoldSave(newSave){
+    return this._http.post('/gold/addNew', newSave)
+      .pipe(map((response: any) => response.json()));
   }
 
   getRanmdomEarn(type){

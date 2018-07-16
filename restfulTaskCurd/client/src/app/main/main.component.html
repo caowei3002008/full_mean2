@@ -1,0 +1,35 @@
+<!--<ng-template ngFor let-item [ngForOf]="tasks" >-->
+  <!--<p>{{item._id}} , {{item.title}} , {{item.description}}</p>-->
+<!--</ng-template>-->
+
+
+<h1>New Task</h1>
+<form (submit)="createTask()">
+  <p><label>Title: <input type="text" name="taskTitle" [(ngModel)] = "task.title" #taskTitle = "ngModel"> </label></p>
+  <p><label>Description: <input type="text" name="taskDescription" [(ngModel)]  = "task.description" #taskDescription = "ngModel"> </label></p>
+  <p><input type="submit" value="Submit"></p>
+  <input type="reset" value="Reset">
+</form>
+
+<div *ngIf="tasks">
+  <h1>Task List</h1>
+  <ng-template ngFor let-item [ngForOf]="tasks" >
+    <div>
+      <p>{{item.title}} </p>
+      <p>{{item.description}}</p>
+      <button (click)="editTask(item._id, item.title, item.description)">EDIT</button>
+      <button (click)="deleteTask(item._id)">DELETE</button>
+    </div>
+
+
+  </ng-template>
+</div>
+
+<div *ngIf="flag">
+  <form (submit)="updateTask()">
+    <p><label>Title: <input type="text" name="taskTitle" [(ngModel)] = "taskTemp.title" #taskTitle = "ngModel" value={{taskTemp.title}}> </label></p>
+    <p><label>Description: <input type="text" name="taskDescription" [(ngModel)]  = "taskTemp.description" #taskDescription = "ngModel" value={{taskTemp.description}}> </label></p>
+    <p><input type="submit" value="Submit"></p>
+    <input type="reset" value="Reset">
+  </form>
+</div>
