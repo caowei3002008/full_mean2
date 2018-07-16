@@ -11,10 +11,10 @@
   <input type="reset" value="Reset">
 </form>
 
-<div *ngIf="tasks">
+<div *ngIf="tasks" >
   <h1>Task List</h1>
   <ng-template ngFor let-item [ngForOf]="tasks" >
-    <div>
+    <div class="form1" id="form2">
       <p>{{item.title}} </p>
       <p>{{item.description}}</p>
       <button (click)="editTask(item._id, item.title, item.description)">EDIT</button>
@@ -25,7 +25,7 @@
   </ng-template>
 </div>
 
-<div *ngIf="flag">
+<div *ngIf="flag" class="form3">
   <form (submit)="updateTask()">
     <p><label>Title: <input type="text" name="taskTitle" [(ngModel)] = "taskTemp.title" #taskTitle = "ngModel" value={{taskTemp.title}}> </label></p>
     <p><label>Description: <input type="text" name="taskDescription" [(ngModel)]  = "taskTemp.description" #taskDescription = "ngModel" value={{taskTemp.description}}> </label></p>

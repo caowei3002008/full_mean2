@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Subject} from "rxjs/index";
+import {Observable, Subject} from "rxjs/index";
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +10,21 @@ export class ApiService {
   tasks : any;
   tasksUpdated = new Subject();
 
-  getTasks() {
-    this.http.get("http://localhost:8000/all").subscribe((data) => {
-      this.tasks = data;
-      this.tasksUpdated.next([...this.tasks]);
-    })
+  // getTasks() {
+  //   this.http.get("/all").subscribe((data) => {
+  //     this.tasks = data;
+  //     this.tasksUpdated.next([...this.tasks]);
+  //   })
+  //
+  // }
 
+  getTaskBack(): Observable<any>{
+    return this.http.get("/all");
   }
 
-  getTasksUpdatedListener(){
-    return this.tasksUpdated.asObservable();
-  }
+  // getTasksUpdatedListener(){
+  //   return this.tasksUpdated.asObservable();
+  // }
 
   addTask(task){
     return this.http.post("/create", task);
