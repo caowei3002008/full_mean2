@@ -1,2 +1,8 @@
-<app-main></app-main>
+
+<h1>Restful Tasks API</h1>
+<button (click)="getAllTasks()">GET ALL TASKS</button>
+<button (click)="clear()">Close All Tasks</button>
+
+<app-main *ngIf="flag1" [TaskToShow] = "product" (taskDeatil) = 'getTaskDetail($event)'></app-main>
+<app-result *ngIf="flag2" [DetailToShow] = "products"></app-result>
 
