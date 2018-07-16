@@ -1,0 +1,19 @@
+<div style="overflow: auto; height: 230px; width: 350px; border: 1px solid black; ">
+<div *ngFor="let cake of cakes" >
+  <div style="height: 200px; width: 300px; border: 1px solid black; margin-top: 10px;margin-left: 10px; ">
+    <img src="{{cake.imageUrl}}"  width="100" height="100" (click)="imageClickDetails(cake._id)">
+    <form (submit)="rate_comment(cake._id, cake.rate_comment)">
+      <select name="rateCake" [(ngModel)] = "cakeR.rate" #rateCake = "ngModel">
+        <option value="1" >1 stars</option>
+        <option value="2">2 stars</option>
+        <option value="3">3 stars</option>
+        <option value="4">4 stars</option>
+        <option  value="5"  selected>5 stars</option>
+      </select> <br>
+      <textarea name="commentCake" [(ngModel)] = "cakeR.comment" #commentCake = "ngModel" rows="2" cols="40">Type your comment here</textarea>
+      <button>Rate!</button>
+    </form>
+  </div>
+</div>
+</div>
+

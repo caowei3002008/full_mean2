@@ -1,0 +1,12 @@
+<p>
+  {{cake.name}}
+</p>
+<img src="{{cake.imageUrl}}"  width="100" height="100"><br>
+<p>{{avg}}</p>
+<div *ngFor="let r of cake.rate_comment">
+
+  <p>Comments: {{r.comment}}</p>
+  <p>Rate: {{r.rate}} stars</p>
+</div>
+
+{{cake | json}}

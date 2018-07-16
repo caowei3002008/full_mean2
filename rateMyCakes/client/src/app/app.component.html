@@ -1,0 +1,12 @@
+<h1>Rate my cakes</h1>
+<form (submit)="createNewCake()">
+  <label>Submit a cake to be rated</label><br>
+  <label>Baker Name: <input type="text" name="cakeName" [(ngModel)] = "cake.name" #cakeName = "ngModel"></label><br>
+  <label>Image Url: <input type="text" name="cakeUrl" [(ngModel)] = "cake.url" #cakeUrl = "ngModel"></label><br>
+  <button>SUBMIT</button>
+</form>
+
+<app-rate-comment [cakes] = "cakes" (cakesId) = "getCakeById($event)" style="float: right; position: relative; bottom: 80px;"></app-rate-comment>
+
+
+<app-cake-detail  *ngIf="flag" [cake_id] = "cake_id"></app-cake-detail>
